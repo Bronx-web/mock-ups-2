@@ -1,0 +1,522 @@
+/* ========================================
+   HART STONE LTD - MAIN STYLESHEET
+   MOBILE-FIRST APPROACH
+   ======================================== */
+
+/* ========================================
+   GOOGLE FONTS IMPORTS
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@400;700;900&family=Poppins:wght@400;600;700&family=Bebas+Neue&family=Lato:wght@400;700&display=swap');
+
+/* ========================================
+   FONT VARIABLES
+   ======================================== */
+:root {
+    --font-body: 'Montserrat', sans-serif;
+    --font-heading-h1: 'Bebas Neue', sans-serif;
+    --font-heading-h2: 'Oswald', sans-serif;
+    --font-heading-h3: 'Poppins', sans-serif;
+    --font-paragraph: 'Lato', sans-serif;
+}
+
+/* ========================================
+   1. RESET & BASE STYLES
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--font-body);
+    background: #2c2c2c;
+    color: white;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================
+   2. NAVIGATION
+   ======================================== */
+nav {
+    background: linear-gradient(135deg, #111 0%, #000 100%);
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff455d, transparent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav ul li a.active::after,
+nav ul li a:hover::after {
+    width: 80%;
+}
+
+/* ========================================
+   3. HERO SECTION
+   ======================================== */
+.hero-image {
+    background: linear-gradient(rgba(255, 255, 255, 0.055), rgba(197, 15, 15, 0.349)), 
+                url('hart-stone-img/hero-home.png');
+    /* background-size: contain; */
+    background-position: center;
+    min-height: 600px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-attachment: fixed;
+    object-fit: cover;
+}
+
+.hero-text {
+    text-align: center;
+    z-index: 2;
+    padding: 2rem 1rem;
+    font-family: 'Oswald', sans-serif;
+    position: relative;
+}
+
+.hero-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(73, 16, 16, 0.048);
+    z-index: -1;
+}
+
+.hero-text h1 {
+    font-family: var(--font-heading-h1);
+    font-size: clamp(3.5rem, 6vw, 3rem);
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin: 0;
+    text-shadow: 0 20px 30px rgba(0, 0, 0, 0.753);
+}
+
+.hero-text h3 {
+    font-size: clamp(1.5rem, 3vw, 1.5rem);
+    color: #ffffff;
+    font-weight: 700;
+    margin-top: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    font-family: var(--font-heading-h3);
+    letter-spacing: 0.02em;
+}
+
+/* Hero Logo */
+.hero-logo {
+    margin-top: 2rem;
+    width: 120px;
+    height: 120px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ========================================
+   4. MAIN CONTENT WRAPPER
+   ======================================== */
+.main-content-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+/* ========================================
+   5. TEXT BLOCK (USED ON ALL PAGES)
+   ======================================== */
+.text-block {
+    background: rgba(70, 10, 10, 0.774);
+    padding: 1.5rem;
+    border-radius: 7px;
+    box-shadow: 0 4px 20px rgb(0, 0, 0);
+    max-width: 561px;
+    width: 100%;
+    text-align: center;
+    line-height: 2.0;
+    margin-top: 32px;
+    z-index: 3;
+}
+
+.text-block h1 {
+    font-size: 1.8rem;
+    color: #CB4154;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading-h1);
+}
+
+.text-block h2 {
+    font-size: 1.3rem;
+    color: #CB4154;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading-h2);
+}
+
+.text-block p {
+    font-size: 16px;
+    font-weight: 100;
+    font-family: var(--font-paragraph);
+}
+
+.text-block ul {
+    text-align: left;
+    margin: 1.5rem auto;
+    max-width: 500px;
+    font-size: 16px;
+}
+
+.text-block li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+/* ========================================
+   6. BUTTONS
+   ======================================== */
+.about-button {
+    margin-top: 1.5rem;
+    padding: 12px 28px;
+    background: #CB4154;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.about-button:hover {
+    background: #cf7581;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   7. CAROUSEL / PROJECT GALLERY
+   ======================================== */
+.carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px 0;
+}
+
+.carousel {
+    display: flex;
+    gap: 15px;
+    animation: scroll-carousel 25s linear infinite;
+}
+
+.carousel a {
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel img {
+    display: block;
+    height: 300px;
+    width: auto;
+    border-radius: 0px;
+    transition: transform 0.3s ease;
+}
+
+.carousel img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes scroll-carousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% - 60px));
+    }
+}
+
+/* ========================================
+   8. ABOUT PAGE STYLES
+   ======================================== */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image-block {
+    width: 100%;
+}
+
+.image-block img {
+    max-width: 100%;
+    border-radius: 8px;
+    height: auto;
+}
+
+/* ========================================
+   9. CONTACT FORM
+   ======================================== */
+.contact-form {
+    background: rgba(70, 10, 10, 0.77);
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgb(0, 0, 0);
+    max-width: 560px;
+    width: 95%;
+    margin: 5vh auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label {
+    align-self: flex-start;
+    margin: 1rem 0 0.5rem 1.5rem;
+    color: #f5f5f5;
+    font-size: 12px;
+    font-family: system-ui;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 95%;
+    padding: 12px;
+    background: rgba(114, 112, 112, 0.562);
+    border: 1px solid #555;
+    color: white;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    font-family: system-ui;
+}
+
+.contact-form button {
+    margin-top: 2rem;
+    padding: 0.9rem 2.5rem;
+    background: #a13f4c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #cf7581;
+}
+
+/* ========================================
+   10. CONTACT PAGE SPECIFIC
+   ======================================== */
+.contact-page .text-block {
+    margin-bottom: auto;
+    z-index: 10;
+    position: relative;
+}
+
+.contact-page .contact-form {
+    margin-top: -0px !important;
+    padding-top: 50px;
+    z-index: 5;
+}
+
+/* ========================================
+   11. CONTACT MAP
+   ======================================== */
+.contact-map iframe {
+    width: 100%;
+    height: 400px;
+    display: block;
+    border: none;
+}
+
+/* ========================================
+   12. FOOTER
+   ======================================== */
+footer {
+    background: #000;
+    padding: 0rem 0 1rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+footer nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+}
+
+footer nav ul li a:hover {
+    color: #ffffff;
+}
+
+footer p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ========================================
+   13. RESPONSIVE DESIGN - TABLET & UP
+   ======================================== */
+
+/* Tablet (760px and above) */
+@media (min-width: 760px) {
+    nav ul li a {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        height: 100vh;
+        width: 100vw;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(3rem, 10vw, 6rem);
+    }
+
+    .hero-text h3 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .text-block {
+        margin-top: 0px;
+        padding: 2rem;
+    }
+
+    .text-block h1 {
+        font-size: 2.2rem;
+    }
+
+    .text-block h2 {
+        font-size: 1.5rem;
+    }
+
+    .text-block p {
+        font-size: 18px;
+    }
+
+    .carousel img {
+        height: 400px;
+    }
+
+    .contact-form {
+        margin: 10vh auto 5vh;
+        padding: 2.5rem 2rem;
+    }
+
+    .contact-map iframe {
+        height: 520px;
+    }
+
+    .about-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .image-block {
+        flex: 1;
+    }
+
+    .image-block img {
+        max-width: 400px;
+        height: 500px;
+    }
+}
+
+/* Large Desktop (1200px and above) */
+@media (min-width: 1200px) {
+    .carousel img {
+        height: 450px;
+    }
+
+    .contact-map iframe {
+        height: 600px;
+    }
+
+    footer nav ul {
+        gap: 2rem;
+    }
+}
