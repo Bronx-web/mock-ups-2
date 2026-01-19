@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hart Stone Ltd | Contact</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+    /* =========================================
+           CUSTOMIZATION SECTION
+           Change these variables to match your website
+           ========================================= */
+    :root {
+        --bb-primary-color: #CB4154;
+        /* Brick Orange */
+        --bb-primary-hover: #bf360c;
+        /* Darker Orange */
+        --bb-bg-color: #fceded;
+        /* Light Grey Background */
+        --bb-card-bg: #faf7f7;
+        /* White Card Background */
+        --bb-text-dark: #2d3436;
+        /* Dark Text */
+        --bb-text-light: #636e72;
+        /* Grey Text */
+        --bb-border-radius: 8px;
+        /* Rounded corners */
+        --bb-font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* =========================================
+           WIDGET STYLES
+           Scoped to #bb-quote-widget to prevent conflicts
+           ========================================= */
+    #bb-quote-widget {
+        font-family: var(--bb-font-family);
+        max-width: 900px;
+        margin: 20px;
+        background-color: var(--bb-bg-color);
+        padding: 20px;
+        border-radius: var(--bb-border-radius);
+        box-sizing: border-box;
+        color: var(--bb-text-dark);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #bb-quote-widget * {
+        box-sizing: border-box;
+    }
+
+    /* Layout Grid */
+    #bb-quote-widget .bb-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+        #bb-quote-widget .bb-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Headers */
+    #bb-quote-widget h2 {
+        margin-top: 0;
+        color: var(--bb-text-dark);
+        border-bottom: 2px solid var(--bb-primary-color);
+        padding-bottom: 10px;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    #bb-quote-widget h3 {
+        margin-top: 0;
+        color: var(--bb-text-dark);
+        font-size: 1.2rem;
+    }
+
+    /* Form Elements */
+    #bb-quote-widget .bb-form-group {
+        margin-bottom: 15px;
+    }
+
+    #bb-quote-widget label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: var(--bb-text-dark);
+        font-size: 0.95rem;
+    }
+
+    #bb-quote-widget input[type="number"],
+    #bb-quote-widget input[type="text"],
+    #bb-quote-widget input[type="email"],
+    #bb-quote-widget select,
+    #bb-quote-widget textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+
+    #bb-quote-widget input:focus,
+    #bb-quote-widget select:focus,
+    #bb-quote-widget textarea:focus {
+        outline: none;
+        border-color: var(--bb-primary-color);
+    }
+
+    #bb-quote-widget .bb-checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    #bb-quote-widget input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--bb-primary-color);
+    }
+
+    /* Quote Summary Card */
+    #bb-quote-widget .bb-summary-card {
+        background: var(--bb-card-bg);
+        padding: 25px;
+        border-radius: var(--bb-border-radius);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border-top: 4px solid var(--bb-primary-color);
+        position: sticky;
+        top: 20px;
+    }
+
+    #bb-quote-widget .bb-line-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #eee;
+    }
+
+    #bb-quote-widget .bb-line-item.total {
+        border-bottom: none;
+        border-top: 2px solid #eee;
+        padding-top: 15px;
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: var(--bb-primary-color);
+    }
+
+    #bb-quote-widget .bb-note {
+        font-size: 0.8rem;
+        color: var(--bb-text-light);
+        margin-top: 15px;
+        font-style: italic;
+    }
+
+    /* Buttons */
+    #bb-quote-widget .bb-btn {
+        background-color: var(--bb-primary-color);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        font-weight: 600;
+        transition: background-color 0.2s;
+        margin-top: 15px;
+    }
+
+    #bb-quote-widget .bb-btn:hover {
+        background-color: var(--bb-primary-hover);
+    }
+
+    /* Success Message */
+    #bb-quote-success {
+        display: none;
+        background-color: #d4edda;
+        color: #155724;
+        padding: 15px;
+        border-radius: 4px;
+        border: 1px solid #c3e6cb;
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+</head>
+
+<body class="contact-page">
+    <!-- NAV SAME AS BEFORE -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Contact Me</h1>
+        </div>
+    </div>
+    
+    <div class="main-content-wrapper">
+        <div class="text-block">
+            <h1>Let's Build Something Together</h1>
+            <p>Whatever stage your projects may be in whether its a full house brick or block venner, statement feature wall heritage repoint, garden walls, or a commercial job that needs to be bang-on. We deliver clean, level, laser-straight brickwork that looks better in 20 years than it does on day one. No surprises on the final invoice. One experienced bricklayer from start to finish, fully insured, with our work speaking for us. Drop your details below, or Request a Quick Quote Using The Calculator Below. </p>
+        </div>
+    </div>
+    
+    <div id="bb-quote-widget">
+        <div class="bb-grid">
+    
+            <!-- Left Side: Inputs -->
+            <div class="bb-inputs">
+                <h2><i class="fa-solid fa-calculator"></i> Hart Stone Ltd | Quote Calculator</h2>
+    
+                <div class="bb-form-group">
+                    <label for="bb-service-type">Service Type</label>
+                    <select id="bb-service-type" onchange="bbCalculate()">
+                        <option value="brick">Bricklaying (Standard)</option>
+                        <option value="block">Blocklaying (Standard)</option>
+                        <option value="veneer">Brick Veneer</option>
+                        <option value="retaining">Block Retaining Wall</option>
+                    </select>
+                </div>
+    
+                <div class="bb-form-group">
+                    <label for="bb-area">Area Size (m²)</label>
+                    <input type="number" id="bb-area" placeholder="e.g. 50" min="1" oninput="bbCalculate()">
+                </div>
+    
+                <div class="bb-form-group">
+                    <label for="bb-complexity">Site Difficulty / Complexity</label>
+                    <select id="bb-complexity" onchange="bbCalculate()">
+                        <option value="1.0">Standard (Flat, Easy Access)</option>
+                        <option value="1.2">Moderate (Sloped, Corners)</option>
+                        <option value="1.5">Complex (High Detail, Bad Access)</option>
+                    </select>
+                </div>
+    
+                <div class="bb-form-group">
+                    <div class="bb-checkbox-group">
+                        <input type="checkbox" id="bb-include-materials" checked onchange="bbCalculate()">
+                        <label for="bb-include-materials" style="margin-bottom:0; font-weight:400;">Include Materials (Bricks/Blocks, Sand, Cement)</label>
+                    </div>
+                </div>
+    
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+    
+                <h3><i class="fa-solid fa-envelope"></i> Request a Call Back</h3>
+                <p style="font-size: 0.9rem; color: var(--bb-text-light);">Happy to help? Enter your details.</p>
+    
+                <form id="bb-contact-form" onsubmit="event.preventDefault(); bbSendQuote();">
+                    <div class="bb-form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="bb-name" required>
+                    </div>
+                    <div class="bb-form-group">
+                        <label>Company</label>
+                        <input type="text" id="bb-name" required>
+                    </div>
+                    <div class="bb-form-group">
+                        <label>Email</label>
+                        <input type="email" id="bb-email" required>
+                    </div>
+                    <div class="bb-form-group">
+                        <label>Phone</label>
+                        <input type="text" id="bb-phone">
+                    </div>
+                    <div class="bb-form-group">
+                        <label>Notes / Requirements</label>
+                        <textarea id="bb-notes" rows="3"></textarea>
+                    </div>
+                    <div class="bb-form-group">
+                        <label for="files">Attach Docs/Photos <small>(PDF, JPG, PNG - Optional But helpful)</small></label>
+                        <input type="file" id="files" name="files[]" multiple accept=".pdf,.jpg,.jpeg,.png" class="bb-form-input" />
+                    </div>
+                    <button type="submit" class="bb-btn">Submit Request</button>
+                </form>
+    
+                <div id="bb-quote-success">
+                    <strong>Success!</strong> Your request has been sent. I will be in touch in soon.
+                </div>
+    
+            </div>
+    
+            <!-- Right Side: Summary -->
+            <div class="bb-summary">
+                <div class="bb-summary-card">
+                    <h3><i class="fa-solid fa-file-invoice-dollar"></i> Estimated Quote</h3>
+    
+                    <div class="bb-line-item">
+                        <span>Labor Cost</span>
+                        <span id="bb-display-labor">$0.00</span>
+                    </div>
+    
+                    <div class="bb-line-item" id="bb-row-materials">
+                        <span>Materials</span>
+                        <span id="bb-display-materials">$0.00</span>
+                    </div>
+    
+                    <div class="bb-line-item">
+                        <span>Subtotal (excl. GST)</span>
+                        <span id="bb-display-subtotal">$0.00</span>
+                    </div>
+    
+                    <div class="bb-line-item">
+                        <span>GST (15%)</span>
+                        <span id="bb-display-gst">$0.00</span>
+                    </div>
+    
+                    <div class="bb-line-item total">
+                        <span>TOTAL ESTIMATE</span>
+                        <span id="bb-display-total">$0.00</span>
+                    </div>
+    
+                    <div class="bb-note">
+                        * This is an estimate based on m² rates. Final price subject to site inspection. Pricing includes standard pointing.
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+          
+        
+    <!-- NETLIFY FORM - WORKS OUT OF THE BOX -->
+    <div class="main-content-wrapper">
+        <div class="text-block">
+        <h1>Our Service Areas</h1>
+        
+        <div class="area-tags" style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+            <span class="area-tag">Christchurch City</span>
+            <span class="area-tag">Selwyn District</span>
+            <span class="area-tag">Waimakariri</span>
+            <span class="area-tag">Rolleston</span>
+            <span class="area-tag">Rangiora</span>
+            <span class="area-tag">Kaiapoi</span>
+            <span class="area-tag">Lincoln</span>
+            <span class="area-tag">Brighton</span>
+    <div class="contact-map" style="width: 100%">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d27523.607555608025!2d172.66798389128635!3d-43.52188175116992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snz!4v1766292956812!5m2!1sen!2snz&radius=100" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="quote-calculator.html">Project Calculator</a></li>
+                <li><a href="index.html">Terms of Service</a></li>
+                <li><a href="need to add.html">Privacy Policy</a></li>
+            </ul>
+            <p>© 2026 Hart Stone Ltd. All Rights Reserved.</p>
+        </nav>
+      </footer>
+      <script>
+        // =========================================
+        //       CONFIGURATION - EDIT RATES HERE
+        // =========================================
+        const bbRates = {
+            labor: {
+                brick: 90,      // $ per m2
+                block: 100,     // $ per m2
+                veneer: 95,     // $ per m2
+                retaining: 120  // $ per m2
+            },
+            materials: {
+                brick: 80,      // $ per m2 (bricks + mortar)
+                block: 90,      // $ per m2 (blocks + mortar + concrete fill)
+                veneer: 85,     // $ per m2
+                retaining: 110  // $ per m2 (blocks + steel + concrete)
+            },
+            taxRate: 0.15 // 15% GST
+        };
+
+        // =========================================
+        //                   LOGIC
+        // =========================================
+        function bbCalculate() {
+            // Get Inputs
+            const serviceType = document.getElementById('bb-service-type').value;
+            const area = parseFloat(document.getElementById('bb-area').value) || 0;
+            const complexity = parseFloat(document.getElementById('bb-complexity').value);
+            const includeMaterials = document.getElementById('bb-include-materials').checked;
+
+            // Base Calculations
+            let laborRate = bbRates.labor[serviceType];
+            let materialRate = bbRates.materials[serviceType];
+
+            // Apply Complexity to Labor only
+            let totalLabor = (laborRate * area) * complexity;
+
+            // Calculate Materials (if checked)
+            let totalMaterials = includeMaterials ? (materialRate * area) : 0;
+
+            // Toggle Material Row Visibility
+            const matRow = document.getElementById('bb-row-materials');
+            if (includeMaterials) {
+                matRow.style.display = 'flex';
+            } else {
+                matRow.style.display = 'none';
+            }
+
+            // Totals
+            let subtotal = totalLabor + totalMaterials;
+            let gst = subtotal * bbRates.taxRate;
+            let grandTotal = subtotal + gst;
+
+            // Update UI
+            document.getElementById('bb-display-labor').textContent = formatMoney(totalLabor);
+            document.getElementById('bb-display-materials').textContent = formatMoney(totalMaterials);
+            document.getElementById('bb-display-subtotal').textContent = formatMoney(subtotal);
+            document.getElementById('bb-display-gst').textContent = formatMoney(gst);
+            document.getElementById('bb-display-total').textContent = formatMoney(grandTotal);
+        }
+
+        // Helper to format currency
+        function formatMoney(amount) {
+            return '$' + amount.toLocaleString('en-NZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        // Handle Form Submission
+        function bbSendQuote() {
+            const form = document.getElementById('bb-contact-form');
+            const successMsg = document.getElementById('bb-quote-success');
+            const btn = form.querySelector('button');
+
+            // Logic to send email would go here (requires backend).
+            // For now, we simulate a successful submission.
+
+            // 1. Collect Data (ready to send to backend/email API)
+            const quoteData = {
+                name: document.getElementById('bb-name').value,
+                // Removed the erroneous line causing the syntax error
+                email: document.getElementById('bb-email').value,
+                phone: document.getElementById('bb-phone').value,
+                service: document.getElementById('bb-service-type').value,
+                area: document.getElementById('bb-area').value,
+                total: document.getElementById('bb-display-total').textContent
+            };
+
+            console.log("Submitting Quote Request:", quoteData);
+
+            // 2. UI Feedback
+            btn.textContent = "Sending...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                form.style.display = 'none';
+                successMsg.style.display = 'block';
+            }, 1500);
+        }
+
+        // Initialize calculation on load (0 values)
+        bbCalculate();
+    </script>
+</body>
+
+</html>

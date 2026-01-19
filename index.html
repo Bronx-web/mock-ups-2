@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hart Stone Ltd</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- NAV SAME AS BEFORE -->
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="index.html"class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1><span class="highlight">Hart Stone Ltd</span></h1>
+            <h3>25<b>+</b> Years Turning Bricks into Statements</h3>
+        </div>
+    </div>
+
+    <div class="main-content-wrapper">
+        <div class="text-block">
+            <h1>Built to Last From the Hart</h1>
+            <p>A time served craftsman with a serious obsession for clean lines, perfect bonds, and details that make architects jealous.
+            Whether you need a bulletproof structural build, a show-stopping outdoor fireplace, or a feature wall I've got the hands, the eye to make it happen.
+            No shortcuts. No mess left behind. Just proper brickwork that looks better 20 years from now than the day it's finished.
+            Have a project in mind? Take a look at my recent jobs below or drop me a message let's build something legendary.
+            </p>
+            <button class="about-button" onclick="location.href='about.html'">Find Out More →</button>
+        </div>
+    </div>
+
+    <div class="project-gallery">
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <a href="my-work-1.png" target="_blank" rel="noopener noreferrer">
+                    <img src="my-work-1.png" alt="Dark grey brick veneer" />
+                </a>
+                <a href="pro-temp-img-2.png" target="_blank" rel="noopener noreferrer">
+                    <img src="pro-temp-img-2.png" alt="Cream brick new home" />
+                </a>
+                <a href="pro-temp-img-1.png" target="_blank" rel="noopener noreferrer">
+                    <img src="pro-temp-img-1.png" alt="Indoor red brick feature wall" />
+                </a>
+                <a href="image4.jpeg" target="_blank" rel="noopener noreferrer">
+                    <img src="image4.jpeg" alt="Red brick lower cladding" />
+                </a>
+               
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Contact</a></li>
+                <li><a href="quote-calculator.html">Project Calculator</a></li>
+                <li><a href="index.html">Terms of Service</a></li>
+                <li><a href="need to add.html">Privacy Policy</a></li>
+                
+            </ul>
+        </nav>
+        <p>© 2026 Hart Stone Ltd. All Rights Reserved.</p>
+    </footer>
+    
+    </body>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link (optional but nice)
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
